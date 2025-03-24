@@ -1,5 +1,6 @@
 <div>
-    <button>
+    <!--Add event listener to the button-->
+    <button (click)="onSelectUser()">
         <img [src]="imagePath" [alt]="selectedUser.name"/>
         <span>{{selectedUser.name}}</span>
     </button>
