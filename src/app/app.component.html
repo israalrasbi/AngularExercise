@@ -1,4 +1,13 @@
 <!--Call the app-header tag here instaed of index.html 
 and main.ts, because this way I will call the bootstrapApplication
 once, and the components can communicated with each other-->
-<app-header></app-header>
+<app-header/>
+
+<!--Call the app-user but wrap it up with main tags-->
+<main>
+  <ul id="users">
+    <li>
+      <app-user/>
+    </li>
+  </ul>
+</main>
