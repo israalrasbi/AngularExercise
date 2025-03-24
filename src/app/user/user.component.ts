@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { DUMMY_USERS } from './dummy-users';
 
 //create a helper function to display the users randomly 
@@ -14,16 +14,14 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 
 //to display the data of the users, implement this class
 export class UserComponent {
-  selectedUser = DUMMY_USERS[randomIndex];
+  selectedUser = signal(DUMMY_USERS[randomIndex]) ;
 
   //create a function that act as a property 
-  get imagePath(){
-    return 'assets/users/' + this.selectedUser.avatar
-  }
+  imagePath = computed( () => 'assets/users/' + this.selectedUser().avatar )
 
   //this function changes the user every time the button is clicked
   onSelectUser() {
    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-   this.selectedUser = DUMMY_USERS[randomIndex];
+   this.selectedUser.set(DUMMY_USERS[randomIndex])
   } 
 }
