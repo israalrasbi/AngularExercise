@@ -12,6 +12,7 @@ import { type User } from './user.model';
 //to display the data of the users, implement this class
 export class UserComponent {
   @Input({required: true}) user !: User;
+  @Input({required: true}) selected !: boolean;
   @Output() select = new EventEmitter<string>();
 
   get imagePath(){

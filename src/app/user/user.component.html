@@ -1,6 +1,6 @@
 <div>
     <!--Add event listener to the button-->
-    <button (click)="onSelectUser()">
+    <button [class.active]="selected" (click)="onSelectUser()">
         <img [src]="imagePath" [alt]="user.name"/>
         <!--Add () to execute a signal-->
         <span>{{user.name}}</span>
